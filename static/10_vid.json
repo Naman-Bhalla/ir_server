@@ -1,0 +1,81 @@
+[{
+    "num_segments": 6, 
+    "description": "someone kicks the bug towards some rocks.", 
+    "dl_link": "https://www.flickr.com/video_download.gne?id=4253489686", 
+    "times": [[4, 4], [4, 4], [0, 0], [4, 4], [0, 0], [0, 0], [4, 4]], 
+    "video": "26292851@N04_4253489686_265c3c8051.m4v", 
+    "annotation_id": 1
+},     
+{
+    "num_segments": 6, 
+    "description": "person in white is backing up.", 
+    "dl_link": "https://www.flickr.com/video_download.gne?id=7071386095", 
+    "times": [[2, 2], [1, 2], [1, 1], [2, 2]], 
+    "video": "51035693821@N01_7071386095_a7350f43e0.mpg", 
+    "annotation_id": 31171
+}, 
+{
+    "num_segments": 6, 
+    "description": "the object is travelling away, but then comes back", 
+    "dl_link": "https://www.flickr.com/video_download.gne?id=7599657594", 
+    "times": [[1, 1], [0, 1], [2, 2], [1, 1]], 
+    "video": "65430553@N08_7599657594_57ef62657c.avi", 
+    "annotation_id": 49157
+}, 
+{
+    "num_segments": 6, 
+    "description": "the man grabs his rifle as he walks away", 
+    "dl_link": "https://www.flickr.com/video_download.gne?id=6059424608", 
+    "times": [[4, 4], [4, 5], [4, 5], [4, 5]], 
+    "video": "26292851@N04_6059424608_55f3199b86.m4v", 
+    "annotation_id": 6
+}, 
+{
+    "num_segments": 6, 
+    "description": "kitty using paws to get food out a can", 
+    "dl_link": "https://www.flickr.com/video_download.gne?id=2731880094", 
+    "times": [[2, 3], [2, 2], [0, 0], [2, 2]], 
+    "video": "8485866@N03_2731880094_5632455f46.mpg", 
+    "annotation_id": 24587
+}, 
+{
+    "num_segments": 6, 
+    "description": "a red light blinks under the drums.", 
+    "dl_link": "https://www.flickr.com/video_download.gne?id=3072987342", 
+    "times": [[1, 2], [1, 2], [1, 2], [1, 2]], 
+    "video": "68413968@N00_3072987342_f1998a1567.mpg", 
+    "annotation_id": 8207
+}, 
+{
+    "num_segments": 6, 
+    "description": "a little girl in pink is lifted for a better view.", 
+    "dl_link": "https://www.flickr.com/video_download.gne?id=8317908648", 
+    "times": [[2, 2], [2, 2], [2, 2], [2, 2]], 
+    "video": "50072196@N00_8317908648_9592bf11e3.mov", 
+    "annotation_id": 32785
+}, 
+{
+    "num_segments": 6, 
+    "description": "man comes into view", 
+    "dl_link": "https://www.flickr.com/video_download.gne?id=6217942022", 
+    "times": [[0, 0], [0, 0], [0, 0], [0, 1]], 
+    "video": "65441360@N00_6217942022_263e71d557.mov", 
+    "annotation_id": 32788
+}, 
+{
+    "num_segments": 6, 
+    "description": "a yellow car pulls up and parks.", 
+    "dl_link": "https://www.flickr.com/video_download.gne?id=7646117928", 
+    "times": [[1, 1], [0, 1], [1, 1], [0, 1]], 
+    "video": "59972430@N00_7646117928_a93152aa0f.wmv", 
+    "annotation_id": 21
+}, 
+{
+    "num_segments": 6, 
+    "description": "a woman wearing a green and yellow shirt shows her face for the first time", 
+    "dl_link": "https://www.flickr.com/video_download.gne?id=12280528136", 
+    "times": [[1, 1], [1, 1], [1, 1], [1, 1]], 
+    "video": "33439178@N00_12280528136_b1d8fa292c.mts", 
+    "annotation_id": 49176
+}
+]
