@@ -21,7 +21,7 @@ import math
 import re
 
 glove_dim = 300
-glove_path = 'data/glove.6B.%dd.txt' % glove_dim
+glove_path = '/home/ubuntu/LocalizingMoments/data/glove.6B.%dd.txt' % glove_dim
 # glove_path = 'data/glove_debug_path.txt' #for debugging
 
 if glove_path == 'data/glove_debug_path.txt':
@@ -35,7 +35,7 @@ for i in itertools.combinations(range(6), 2):
 length_prep_word = 40
 length_prep_character = 250
 
-vocab_file = 'data/vocab_glove_complete.txt'
+vocab_file = '/home/ubuntu/LocalizingMoments/data/vocab_glove_complete.txt'
 
 
 def word_tokenize(s):
@@ -142,9 +142,9 @@ class recurrent_word(recurrent_language):
 class recurrent_embedding(recurrent_language):
 
     def read_embedding(self):
-        print
-        "Reading glove embedding"
-        embedding = glove_embedding(glove_path)
+#        print
+#        "Reading glove embedding"
+#        embedding = glove_embedding(glove_path)
         self.embedding = embedding
 
     def get_vector_dim(self):
@@ -245,7 +245,7 @@ class extractLanguageFeatures(extractData):
 
         self.vocab_dict = params['vocab_dict']
         self.batch_size = params['batch_size']
-        self.num_glove_centroids = self.vocab_dict.values()[0].shape[0]
+        self.num_glove_centroids = list(self.vocab_dict.values())[0].shape[0]
         self.T = params['sentence_length']
 
         if isinstance(result, dict):
@@ -547,3 +547,5 @@ class dataLayer_ExtractPairedLanguageVision(python_data_layer):
         visual_feature_extractor = visual_extractor_fcn(data, self.params, self.thread_result)
         textual_feature_extractor = language_extractor_fcn(data, self.params, self.thread_result)
         self.data_extractors = [visual_feature_extractor, textual_feature_extractor]
+
+embedding = glove_embedding(glove_path)

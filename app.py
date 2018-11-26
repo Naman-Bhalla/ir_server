@@ -2,35 +2,37 @@ from flask import Flask, jsonify
 from utils.data_processing import extractLanguageFeatures, extractVisualFeatures, language_feature_process_dict
 from utils.utils import read_json
 import caffe
+import numpy as np
 app = Flask(__name__)
-
-test_h5 = 'data/average_fc7.h5'
+caffe.set_mode_gpu()
+caffe.set_device(0)
+test_h5 = '/home/ubuntu/LocalizingMoments/data/average_fc7.h5'
 
 visual_feature = 'feature_process_context'
 language_feature = 'recurrent_embedding'
 max_iter = 30000
 snapshot_interval = 30000
 loc = True
-snapshot_dir = 'snapshot'
+snapshot_dir = '/home/ubuntu/LocalizingMoments/snapshots'
 
 language_extractor_fcn = extractLanguageFeatures
 visual_extractor_fcn = extractVisualFeatures
 
 language_process = language_feature_process_dict[language_feature]
-language_processor = language_process()
+#language_processor = language_process()
 data_orig = read_json('static/10_vid.json')
 #Flow Things
-flow_deploy_net = 'prototxts/deploy_clip_retrieval_flow_iccv_release_feature_process_context_recurrent_embedding_lfTrue_dv0.3_dl0.0_nlv2_nlllstm_no_embed_edl1000-100_edv500-100_pmFalse_losstriplet_lwInter0.2.prototxt'
+flow_deploy_net = '/home/ubuntu/LocalizingMoments/prototxts/deploy_clip_retrieval_flow_iccv_release_feature_process_context_recurrent_embedding_lfTrue_dv0.3_dl0.0_nlv2_nlllstm_no_embed_edl1000-100_edv500-100_pmFalse_losstriplet_lwInter0.2.prototxt'
 flow_snapshot_tag = 'flow_iccv_release_feature_process_context_recurrent_embedding_lfTrue_dv0.3_dl0.0_nlv2_nlllstm_no_embed_edl1000-100_edv500-100_pmFalse_losstriplet_lwInter0.2'
-flow_test_h5 = 'data/average_global_flow.h5'
+flow_test_h5 = '/home/ubuntu/LocalizingMoments/data/average_global_flow.h5'
 flow_snapshot = '%s/%s_iter_%%d.caffemodel' % (snapshot_dir, flow_snapshot_tag)
-flow_net = caffe.Net(flow_deploy_net, flow_snapshot % iter, caffe.TEST)
+flow_net = caffe.Net(flow_deploy_net, flow_snapshot % 30000, caffe.TEST)
 #RGB Things
-rgb_deploy_net = 'prototxts/deploy_clip_retrieval_rgb_iccv_release_feature_process_context_recurrent_embedding_lfTrue_dv0.3_dl0.0_nlv2_nlllstm_no_embed_edl1000-100_edv500-100_pmFalse_losstriplet_lwInter0.2.prototxt'
+rgb_deploy_net = '/home/ubuntu/LocalizingMoments/prototxts/deploy_clip_retrieval_rgb_iccv_release_feature_process_context_recurrent_embedding_lfTrue_dv0.3_dl0.0_nlv2_nlllstm_no_embed_edl1000-100_edv500-100_pmFalse_losstriplet_lwInter0.2.prototxt'
 rgb_snapshot_tag = 'rgb_iccv_release_feature_process_context_recurrent_embedding_lfTrue_dv0.3_dl0.0_nlv2_nlllstm_no_embed_edl1000-100_edv500-100_pmFalse_losstriplet_lwInter0.2'
-rgb_test_h5 = 'data/average_fc7.h5'
+rgb_test_h5 = '/home/ubuntu/LocalizingMoments/data/average_fc7.h5'
 rgb_snapshot = '%s/%s_iter_%%d.caffemodel' % (snapshot_dir, rgb_snapshot_tag)
-rgb_net = caffe.Net(rgb_deploy_net, rgb_snapshot % iter, caffe.TEST)
+rgb_net = caffe.Net(rgb_deploy_net, rgb_snapshot % 30000, caffe.TEST)
 
 @app.route('/')
 def hello_world():
@@ -101,4 +103,4 @@ def serve(model_type, user_query):
     # print("Dumped results to: %s/%s_%s.p" % (result_dir, snapshot_tag, split))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
